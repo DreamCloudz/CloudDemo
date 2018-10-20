@@ -1,0 +1,4 @@
+server:
+  port: 8011
+
+foo: foo is now! default
