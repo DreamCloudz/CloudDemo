@@ -9,4 +9,4 @@ spring:
         native:
           search-locations: classpath:/conf
   profiles:
-    active: native
+    active: native  # 设置本地存储配置 spring.profiles.active=native
