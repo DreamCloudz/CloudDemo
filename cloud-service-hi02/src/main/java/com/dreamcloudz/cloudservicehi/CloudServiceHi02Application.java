@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-public class CloudServiceHiApplication {
+public class CloudServiceHi02Application {
 
   public static void main(String[] args) {
-    SpringApplication.run(CloudServiceHiApplication.class, args);
+    SpringApplication.run(CloudServiceHi02Application.class, args);
 
     String clzzName = Thread.currentThread().getStackTrace()[1].getClassName();
     clzzName = clzzName.substring(clzzName.lastIndexOf(".") + 1);

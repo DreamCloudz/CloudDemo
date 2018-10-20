@@ -10,3 +10,8 @@ spring:
           search-locations: classpath:/conf
   profiles:
     active: native  # 设置本地存储配置 spring.profiles.active=native
+
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8001/eureka/
