@@ -6,10 +6,13 @@ spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/conf
-  profiles:
-    active: native  # 设置本地存储配置 spring.profiles.active=native
+        git:
+          uri: https://github.com/DreamCloudz/cloud-config/  #设置github上配置文件路径
+          search-paths: conf
+          username:
+          password:
+      label: master
+      fail-fast: true
 
 eureka:
   client:

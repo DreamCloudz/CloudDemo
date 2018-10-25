@@ -1,13 +1,43 @@
+# 非注册中心，客户端与服务端直连
+#spring:
+#  application:
+#    name: cloud-config-client
+#  cloud:
+#    config:
+#      enabled: true
+#      uri: http://localhost:8010/     # 设置配置服务端的链接地址
+#
+#      # 设置配置文件类型。spring.cloud.config.profile
+#      # 1、当存在该属性时必填（dev-开发环境配置文件，test-测试环境，pro-正式环境），
+#      #    配置文件名称为{application}-{profile}.yml 或者 {application}-{profile}.properties
+#      # 2、当没有该属性时，配置文件名称为{application}.yml 或者 {application}.properties
+#      profile: dev
+
 spring:
   application:
     name: cloud-config-client
   cloud:
     config:
-      enabled: true
-      uri: http://localhost:8010/     # 设置配置服务端的链接地址
-
-      # 设置配置文件类型。spring.cloud.config.profile
-      # 1、当存在该属性时必填（dev-开发环境配置文件，test-测试环境，pro-正式环境），
-      #    配置文件名称为{application}-{profile}.yml 或者 {application}-{profile}.properties
-      # 2、当没有该属性时，配置文件名称为{application}.yml 或者 {application}.properties
+      discovery:
+        enabled: true
+        service-id: cloud-config-server
+      fail-fast: true
       profile: dev
+  # 消息总线
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# 在该版本中需要设置management.security.enabled=false
+management:
+  security:
+    enabled: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+
+
